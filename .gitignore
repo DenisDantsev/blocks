@@ -1,0 +1,34 @@
+/Temp
+/obj
+/Library
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.pidb
+*.userprefs
+Assets/-tk2d.*
+Assets/Resources/tk2d/*
+
+#Resharper
+*.DotSettings
+
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+ExportedObj/
+obj/
+*.svd
+*.user
+*.booproj
