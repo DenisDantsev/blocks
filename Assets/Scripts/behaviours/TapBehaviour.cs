@@ -7,7 +7,7 @@ using DG.Tweening;
 using System.Collections;
 
 //Simple match 3 strategy
-public class TapBehaviour : MonoBehaviour
+public class TapBehaviour : BaseBehaviour
 {
 	void OnEnable()
 	{
@@ -27,25 +27,7 @@ public class TapBehaviour : MonoBehaviour
 	{
 		if(block.type == BlockType.Tap)
 		{
-			List<BaseBlock> neighbours = new List<BaseBlock>();
-			Stack<BaseBlock> stack = new Stack<BaseBlock>();
-			stack.Push(block);
-			while(stack.Count != 0)
-			{
-				BaseBlock pushedBlock = stack.Pop();
-				neighbours.Add(pushedBlock);
-				for (int row = pushedBlock.row - 1; row <= pushedBlock.row + 1; row++) 
-				{
-					for (int col = pushedBlock.column -1; col <= pushedBlock.column + 1; col++) 
-					{
-						BaseBlock newBlock = null;
-						if(LevelMain.Instanse.Field.GetBlockByPosition(row, col, out newBlock))
-						{
-							stack.Push(newBlock);
-						}
-					}
-				}
-			}
+			List<BaseBlock> neighbours = LevelMain.Instanse.FieldController.Neighbours(block);
 
 			if(neighbours.Count < 3)
 			{
@@ -94,7 +76,7 @@ public class TapBehaviour : MonoBehaviour
 			blocks.RemoveAt(0);
 		}
 
-		LevelMain.Instanse.SloughtController.slough(dir);
+		OnExecuted();
 	}
 }
 

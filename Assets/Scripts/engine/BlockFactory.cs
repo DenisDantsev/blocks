@@ -42,7 +42,8 @@ public class BlockFactory :  Singleton<BlockFactory>, ISingleton
 	//Create new one using a balance file
 	public BaseBlock GetNewRandomBlock()
 	{
-
+		//TODO
+		return null;
 	}
 
 	public void DestroyBlock(BaseBlock block)

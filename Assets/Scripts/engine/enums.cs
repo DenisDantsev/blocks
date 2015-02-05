@@ -1,3 +1,4 @@
+
 public enum AssetPriority
 {
 	Instantly,
@@ -25,7 +26,19 @@ public enum UserEvent
 {
 	Click,
 	FingerDown,
-	FingerUp,
+	FingerUp
+}
+
+public enum LevelEvents
+{
+	NextStepProccesed,
+	AllStepsProcessed
+}
+
+public enum LevelStates
+{
+	Idle,
+	ProccessSteps,
 }
 
 public enum BlockEvent

@@ -21,17 +21,24 @@ public static class ScreenHelper
 		return rect;
 	}
 
+	public static Vector3 WorldMousePosition()
+	{
+		Camera camera = Camera.main;
+		Vector3 mousePos = Input.mousePosition;
+		return camera.ScreenToWorldPoint(mousePos);
+	}
+
 	//World height and width
 	public static Vector3 WorldDemensions()
 	{
-		Rect rect = ScreenHelper.WorldScreenRect;
+		Rect rect = ScreenHelper.WorldScreenRect();
 		return new Vector3(rect.width, rect.height);
 	}
 
 	public static Vector3 WorldCenter()
 	{
-		Rect rect = ScreenHelper.WorldScreenRect;
-		Vector3 Demensions = ScreenHelper.WorldDemensions;
+		Rect rect = ScreenHelper.WorldScreenRect();
+		Vector3 Demensions = ScreenHelper.WorldDemensions();
 		return new Vector3(rect.xMin + Demensions.x / 2, rect.yMin + Demensions.y / 2);
 	}
 }

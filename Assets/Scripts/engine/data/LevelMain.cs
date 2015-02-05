@@ -1,11 +1,12 @@
 using System;
 using UnityEngine;
-
+using System.Collections.Generic;
 //The main level scripts. Contains all behaviour scripts and models.
 
 public class LevelMain : Singleton<LevelMain>, ISingleton
 {
 	public BaseFieldController FieldController;
+	public List<MonoBehaviour> RegisteredBehaviours;
 	public SloughingController SloughtController;
 	public FieldMatrix Field;
 	public LevelModel Level;
@@ -18,7 +19,9 @@ public class LevelMain : Singleton<LevelMain>, ISingleton
 
 	public void Init()
 	{
-		AddComponentToSingleton<TapBehaviour>();
+		RegisteredBehaviours = new List<MonoBehaviour>();
+		RegisteredBehaviours.Add (AddComponentToSingleton<TapBehaviour>());
+
 		FieldController = AddComponentToSingleton<BaseFieldController>();
 	}
 

@@ -5,20 +5,29 @@ using System.Collections.Generic;
 public class Game :  Singleton<Game> , ISingleton
 {
 	public ConfigLoader ConfigLoader;
+	public LevelStateManager LevelStateManager;
 	public ProgressLoader ProgressLoader;
 	public BlockFactory factory;
 	public AssetManager AssetManager;
 	public List<LevelModel> Levels;
 	public UserModel User;
 
+	public EventManager<LevelEvents> LevelEventManager;
 	public EventManager<UserEvent> UserEventManager;
 	public EventManager<BlockEvent> BlockEventManager;
 
 	int _goLevel;
 
+	void Awake()
+	{
+		Init ();
+	}
+
 	public void Init()
 	{
+		LevelStateManager = new LevelStateManager();
 		UserEventManager = new EventManager<UserEvent>();
+		LevelEventManager = new EventManager<LevelEvents>();
 		BlockEventManager = new EventManager<BlockEvent>();
 		ConfigLoader = new ConfigLoader();
 		ProgressLoader = new ProgressLoader();
